@@ -2,15 +2,15 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
 android {
-    namespace 'com.example.caloriecounterapp'
-    compileSdk 33
+    namespace 'com.kitsunetech.caloriecounterapp'
+    compileSdk 34
 
     defaultConfig {
-        applicationId "com.example.caloriecounterapp"
+        applicationId "com.kitsunetech.caloriecounterapp"
         minSdk 24
-        targetSdk 33
-        versionCode 1
-        versionName "1.0"
+        targetSdk 34
+        versionCode 2
+        versionName "1.0.1"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

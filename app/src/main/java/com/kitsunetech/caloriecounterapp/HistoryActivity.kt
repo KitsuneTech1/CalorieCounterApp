@@ -1,10 +1,10 @@
-package com.example.caloriecounterapp2
+package com.kitsunetech.caloriecounterapp
 
-import android.content.Context
+import android.R
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.example.caloriecounterapp2.databinding.ActivityHistoryBinding
+import com.kitsunetech.caloriecounterapp.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
 
@@ -16,11 +16,11 @@ class HistoryActivity : AppCompatActivity() {
         setContentView(binding.root)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        val prefs = getSharedPreferences("CalorieCounterPrefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("CalorieCounterPrefs", MODE_PRIVATE)
         val historySet = prefs.getStringSet("history", setOf()) ?: setOf()
         val historyList = historySet.toList().sortedDescending()
 
-        val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, historyList)
+        val adapter = ArrayAdapter(this, R.layout.simple_list_item_1, historyList)
         binding.lvHistory.adapter = adapter
     }
 

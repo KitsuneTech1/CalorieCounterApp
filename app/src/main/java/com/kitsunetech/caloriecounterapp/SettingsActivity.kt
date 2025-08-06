@@ -1,13 +1,12 @@
-package com.example.caloriecounterapp2
+package com.kitsunetech.caloriecounterapp
 
-import android.app.Activity
+import android.R
 import android.app.TimePickerDialog
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.caloriecounterapp2.databinding.ActivitySettingsBinding
+import com.kitsunetech.caloriecounterapp.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {
 
@@ -19,14 +18,14 @@ class SettingsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.btnReset.setOnClickListener {
-            val prefs = getSharedPreferences("CalorieCounterPrefs", Context.MODE_PRIVATE)
+            val prefs = getSharedPreferences("CalorieCounterPrefs", MODE_PRIVATE)
             val editor = prefs.edit()
             editor.clear()
             editor.apply()
 
             val intent = Intent()
             intent.putExtra("reset", true)
-            setResult(Activity.RESULT_OK, intent)
+            setResult(RESULT_OK, intent)
             finish()
         }
 
@@ -37,7 +36,7 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when (item.itemId) {
-            android.R.id.home -> {
+            R.id.home -> {
                 onBackPressed()
                 true
             }
@@ -46,7 +45,7 @@ class SettingsActivity : AppCompatActivity() {
     }
 
     private fun showTimePickerDialog() {
-        val prefs = getSharedPreferences("CalorieCounterPrefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("CalorieCounterPrefs", MODE_PRIVATE)
         val resetHour = prefs.getInt("resetHour", 0)
         val resetMinute = prefs.getInt("resetMinute", 0)
 
@@ -74,7 +73,7 @@ class SettingsActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        val prefs = getSharedPreferences("CalorieCounterPrefs", Context.MODE_PRIVATE)
+        val prefs = getSharedPreferences("CalorieCounterPrefs", MODE_PRIVATE)
         val resetHour = prefs.getInt("resetHour", 0)
         val resetMinute = prefs.getInt("resetMinute", 0)
         updateResetTimeButtonText(resetHour, resetMinute)
