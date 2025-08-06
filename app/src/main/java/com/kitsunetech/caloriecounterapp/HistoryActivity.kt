@@ -1,10 +1,10 @@
-package com.example.caloriecounterapp
+package com.example.caloriecounterapp2
 
 import android.content.Context
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.example.caloriecounterapp.databinding.ActivityHistoryBinding
+import com.example.caloriecounterapp2.databinding.ActivityHistoryBinding
 
 class HistoryActivity : AppCompatActivity() {
 

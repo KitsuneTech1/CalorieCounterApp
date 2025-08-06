@@ -1,4 +1,4 @@
-package com.example.caloriecounterapp
+package com.kitsunetech.caloriecounterapp
 
 import android.app.Activity
 import android.content.Context
@@ -11,7 +11,7 @@ import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
-import com.example.caloriecounterapp.databinding.ActivityMainBinding
+import com.kitsunetech.caloriecounterapp.databinding.ActivityMainBinding
 import java.util.Calendar
 
 class MainActivity : AppCompatActivity() {
@@ -67,7 +67,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun handleCalorieUpdate() {
         if (calorieGoal == 0) {
-            // Saving the calorie goal
             val goalStr = binding.etCalorieGoal.text?.toString() ?: ""
             if (goalStr.isNotEmpty()) {
                 try {
@@ -83,7 +82,6 @@ class MainActivity : AppCompatActivity() {
                 Toast.makeText(this, "Please enter a calorie goal", Toast.LENGTH_SHORT).show()
             }
         } else {
-            // Subtracting consumed calories
             val consumedStr = binding.etCaloriesConsumed.text?.toString() ?: ""
             if (consumedStr.isNotEmpty()) {
                 try {
@@ -158,7 +156,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (currentCal.after(resetCal) && lastCal.before(resetCal)) {
-            // Save the previous day's history
             val historySet = prefs.getStringSet("history", mutableSetOf())?.toMutableSet() ?: mutableSetOf()
             val yesterday = Calendar.getInstance().apply { add(Calendar.DAY_OF_YEAR, -1) }
             val dateStr = "${yesterday.get(Calendar.MONTH) + 1}/${yesterday.get(Calendar.DAY_OF_MONTH)}/${yesterday.get(Calendar.YEAR)}"
@@ -166,7 +163,6 @@ class MainActivity : AppCompatActivity() {
             historySet.add("$dateStr: $totalConsumed / $calorieGoal calories")
             prefs.edit().putStringSet("history", historySet).apply()
 
-            // Reset for the new day
             caloriesRemaining = calorieGoal
             saveData()
             updateUI()

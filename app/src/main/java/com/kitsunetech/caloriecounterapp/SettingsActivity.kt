@@ -1,4 +1,4 @@
-package com.example.caloriecounterapp
+package com.example.caloriecounterapp2
 
 import android.app.Activity
 import android.app.TimePickerDialog
@@ -7,8 +7,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
-import com.example.caloriecounterapp.databinding.ActivitySettingsBinding
-import java.util.Calendar
+import com.example.caloriecounterapp2.databinding.ActivitySettingsBinding
 
 class SettingsActivity : AppCompatActivity() {
 
